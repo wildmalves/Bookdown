@@ -1,6 +1,6 @@
 # Database Structure
 
-The package `DBI` was used to create database and tables.
+The package `DBI` was used to create the database and tables.
 
 ## Database Creation
 
@@ -14,13 +14,11 @@ questions,
 answers_text, 
 answers_mc, 
 answers_ls, 
-answers_ca, 
-answer_type.
-
+answers_ca.
 
 ### responses 
  
-    - TEXT DESCRIPTION
+    - This table will contain all responses submitted to the Google Forms survey.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE responses (
@@ -31,7 +29,7 @@ answer_type.
 
 ### projects
 
-    - TEXT DESCRIPTION
+    - This table will contain information about all respondents projects and contact information.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE projects (
@@ -49,19 +47,19 @@ answer_type.
 
 ### questions
 
-    -TEXT DESCRIPTION
+    -This table will contain all of the questions and types of questions that will be asked in the Google Forms survey.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE questions (
           quest_id varchar text PRIMARY KEY
           questions text,
-          answer_type text
+          quest_type varchar (5) CHECK (quest_type IN ('text', 'mc', 'ls', 'ca')),
           );")
 ```
 
 ### answers_text
 
-    -TEXT DESCRIPTION
+    -This table will contain all answers to short and long answer questions.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE answers_text (
@@ -74,7 +72,7 @@ answer_type.
 
 ### answers-mc
 
-    -TEXT DESCRIPTION
+    -This table will contain all answers to multiple choice questions.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE answers_mc (
@@ -87,7 +85,7 @@ answer_type.
 
 ### answers_ls
 
-    -TEXT DESCRIPTION
+    -This table will contain all answers to linear scale questions.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE answers_ls (
@@ -100,7 +98,7 @@ answer_type.
 
 ### answers_ca
 
-    -TEXT DESCRIPTION
+    -This table will contain all answers to check all that apply questions.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE answers_ca (
@@ -111,20 +109,6 @@ answer_type.
           );")
 ```
 
-### answer_type
-
-    -TEXT DESCRIPTION
-
-```{r, eval = FALSE, echo = TRUE}
-    dbExecute(metabeaver_db, "CREATE TABLE answer_type (
-          answer_type text PRIMARY KEY,
-          FOREIGN KEY (text_id) REFERENCES answers_text(text_id)
-          FOREIGN KEY (mc_id) REFERENCES answers_mc(mc_id)
-          FOREIGN KEY (ls_id) REFERENCES answers_ls(ls_id)
-          FOREIGN KEY (ca_id) REFERENCES answers_ca(ca_id)
-          FOREIGN KEY (quest_id) REFERENCES questions(quest_id)
-          );")
-```
 
 ## Relational Database Diagram
 
