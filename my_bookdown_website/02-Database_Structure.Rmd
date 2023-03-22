@@ -112,6 +112,10 @@ answers_ca.
 
 ## Relational Database Diagram
 
-```{r image, fig.cap="Relational Database Diagram", fig.align='center', out.width='100%'}
-knitr::include_graphics("/Users/mollyalves/MASTERS/MetaAnalysis/Data/ReproDat_Assignment3.pdf")
+```{r, eval=FALSE, echo=FALSE}
+library(knitr)
+```
+
+```{r my-fig, fig.cap= "Relational Database Diagram", fig.align='center', out.width='100%', eval=TRUE}
+knitr::include_graphics("/Users/mollyalves/MASTERS/Bookdown/my_bookdown_website/ReproDat_Assignment3.pdf", rel_path= getOption("knitr.graphics.rel_path", TRUE))
 ```
