@@ -116,6 +116,6 @@ answers_ca.
 library(knitr)
 ```
 
-```{r my-fig, fig.cap= "Relational Database Diagram", fig.align='center', out.width='100%', eval=TRUE}
+```{r my-fig, fig.cap= "Relational Database Diagram", fig.align='center', out.width='100%', eval=TRUE, echo=FALSE}
 knitr::include_graphics("/Users/mollyalves/MASTERS/Bookdown/my_bookdown_website/ReproDat_Assignment3.pdf", rel_path= getOption("knitr.graphics.rel_path", TRUE))
 ```
