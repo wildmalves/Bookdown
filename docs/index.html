@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A Metanalysis of Beaver Translocation Methods to Inform Establishment Success and Beaver Management Policy</title>
-  <meta name="description" content="This is a draft bookdown doc for Repro Dat 2023." />
+  <meta name="description" content="This is the final bookdown document for Reproducible Data Science 2023." />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A Metanalysis of Beaver Translocation Methods to Inform Establishment Success and Beaver Management Policy" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="This is a draft bookdown doc for Repro Dat 2023." />
+  <meta property="og:description" content="This is the final bookdown document for Reproducible Data Science 2023." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="A Metanalysis of Beaver Translocation Methods to Inform Establishment Success and Beaver Management Policy" />
   
-  <meta name="twitter:description" content="This is a draft bookdown doc for Repro Dat 2023." />
+  <meta name="twitter:description" content="This is the final bookdown document for Reproducible Data Science 2023." />
   
 
 <meta name="author" content="Molly Alves" />
 
 
-<meta name="date" content="2023-03-22" />
+<meta name="date" content="2023-04-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="introduction.html"/>
+<link rel="next" href="project-organization.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -158,14 +158,13 @@ div.csl-indent {
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#objectives"><i class="fa fa-check"></i><b>2.1</b> Objectives</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#geographic-scope"><i class="fa fa-check"></i><b>2.2</b> Geographic Scope</a></li>
-<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#methods"><i class="fa fa-check"></i><b>2.3</b> Methods</a></li>
-<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#expected-products"><i class="fa fa-check"></i><b>2.4</b> Expected Products</a></li>
-<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#next-steps"><i class="fa fa-check"></i><b>2.5</b> Next Steps</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>2</b> Project Organization</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="project-organization.html"><a href="project-organization.html#load-raw-data-from-survey"><i class="fa fa-check"></i><b>2.1</b> Load Raw Data from Survey</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="database-structure.html"><a href="database-structure.html"><i class="fa fa-check"></i><b>3</b> Database Structure</a>
 <ul>
@@ -210,12 +209,16 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">A Metanalysis of Beaver Translocation Methods to Inform Establishment Success and Beaver Management Policy</h1>
 <p class="author"><em>Molly Alves</em></p>
-<p class="date"><em>2023-03-22</em></p>
+<p class="date"><em>2023-04-19</em></p>
 </div>
 <div id="about" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> About<a href="index.html#about" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This book has been prepared for the Reproducible Data Science 2023 final assignment and was written in <strong>Markdown</strong>.</p>
+<div id="introduction" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Beavers (American, Castor canadensis; Eurasian, Castor fiber) have long been valued for their dense fur and aromatic castor, resulting in their near extirpation from North America and Europe in the late 19th century. Their systematic removal led to a loss of wetland habitat and ecosystem services provided by the beaver’s damming activity. Modern harvest restrictions have enabled their recovery in some areas; however, there are many barriers to natural recolonization, whether anthropogenic (infrastructure, stream channelization), ecological (climate impacts to seasonal flow and vegetative communities), or political (misclassification and social carrying capacity). Today, beaver translocation has become a popular management strategy for habitat restoration, fire abatement, and a widely accepted method of nature-based restoration in rewilding efforts. There are, however, vast differences in the ways in which beaver translocation programs monitor translocated beavers in terms of release site selection and post-translocation monitoring, how they define translocation success, and the policies that guide translocation activities. My thesis aims to synthesize available information by (1) accumulating and analyzing beaver translocation methodology data from current and past translocations; and (2) developing a database of existing beaver management policies where beaver translocation is occurring. By analyzing the cumulative data from all contributing beaver translocation projects, I propose to create guiding principles for humane and successful beaver translocation. Combining this synthesis, with an accessible database on policies, will allow future translocation projects to rapidly identify best practices for their geographic region.</p>
 
+</div>
 </div>
             </section>
 
@@ -223,7 +226,7 @@ div.csl-indent {
         </div>
       </div>
 
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="project-organization.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

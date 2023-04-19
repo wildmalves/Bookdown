@@ -1,24 +1,10 @@
 # Project Organization
 
-For my final semester project, I will be establishing a database that will enable me to manage, clean, and code my incoming data for eventual import into R for meta-analysis. I expect to begin collecting data in March/April so would like to have this database created and have a structured plan for data input, cleaning, and coding.
-
-```{r, eval=FALSE, echo=FALSE}
-library(knitr)
-```
-
-```{r my-fig, fig.cap= "Relational Database Diagram", fig.align='center', out.width='100%', eval=TRUE, echo=FALSE}
-knitr::include_graphics("/Users/mollyalves/MASTERS/Bookdown/Images/ReproDatReposStruc", rel_path= getOption("knitr.graphics.rel_path", TRUE))
-```
-
-I chose this directory structure so that it is nested in my root directory for easy import into R and for version tracking with Git. For organizational purposes, I placed it in my MASTERS folder, under the folder MetaAnalysis so that all files associated with my degree and proposed meta-analysis are in one, easy to locate folder. I chose to add folders for Code, Data, Figures, Manuscripts, README, and Results at your recommendation so that I can track and version control all incoming data, code that is created, and eventual Figures, Results, and Manuscripts that are developed from the eventual analysis. The README folder will track all inputs to these folders as my metadata. The MetaAnalysis folder can then be zipped and shared at the conclusion of the study for anyone that may want to replicate my methods.
-
-# Progress
-
-The Google Forms Survey was lauched two weeks ago. So far, I have received 22 responses. I will use this as test data and manipulate it to fit my database structure.
+For my final semester project, I will be establishing a database that will enable me to manage, clean, and code my incoming data for eventual import into R for meta-analysis. The Google Forms Survey was lauched two weeks ago. So far, I have received 22 responses. I will use this as test data and manipulate it to fit my database structure.
 
 ## Load Raw Data from Survey
 
-```{r, eval=TRUE, echo=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 library(tidyverse)
 ```
 
@@ -26,6 +12,7 @@ library(tidyverse)
 library(readxl)
 ```
 
-TestData <- readxl::read_excel ("GoogleFormRespTEST.xlsx")
-TestData
-
+```{r, eval=TRUE}
+RawData_test <- readxl::read_excel ("~/MASTERS/Bookdown/GoogleFormRespTEST.xlsx")
+RawData_test
+```

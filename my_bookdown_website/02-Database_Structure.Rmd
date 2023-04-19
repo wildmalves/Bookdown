@@ -1,10 +1,13 @@
 # Database Structure
 
-The package `DBI` was used to create the database and tables.
+The package `DBI` was used to create the database and tables. I chose this directory structure so that it is nested in my root directory for easy import into R and for version tracking with Git. For organizational purposes, I placed it in my MASTERS folder, under the folder MetaAnalysis so that all files associated with my degree and proposed meta-analysis are in one, easy to locate folder. I chose to add folders for Code, Data, Figures, Manuscripts, README, and Results at your recommendation so that I can track and version control all incoming data, code that is created, and eventual Figures, Results, and Manuscripts that are developed from the eventual analysis. The README folder will track all inputs to these folders as my metadata. The MetaAnalysis folder can then be zipped and shared at the conclusion of the study for anyone that may want to replicate my methods.
 
 ## Database Creation
 
-metabeaver_db <- dbConnect(RSQLite::SQLite(), "../../MASTERS/MetaAnalysis/Data/metabeaver.db")
+```{r, eval = FALSE, echo = TRUE}
+metabeaver_db <- dbConnect(RSQLite::SQLite(), 
+    "../../MASTERS/MetaAnalysis/Data/metabeaver.db")
+```
 
 ## Tables
 
@@ -18,7 +21,11 @@ answers_ca.
 
 ### responses 
  
-    - This table will contain all responses submitted to the Google Forms survey.
+    - This table will contain all responses submitted to the Google Forms 
+    survey and will contact columns for response ID (resp_id) and project ID 
+    (proj_id). Response IDs will be generated electronically based on the order 
+    of survey submission and each project will be manually assigned a unique 
+    character code to distinguish it among others.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE responses (
@@ -29,15 +36,21 @@ answers_ca.
 
 ### projects
 
-    - This table will contain information about all respondents projects and contact information.
+    - This table will contain information about all respondents projects and 
+    contact information and will contain columns for proj_id, proj_email, 
+    proj_name,	proj_agency,	proj_501c3,	proj_called,	proj_lead,	
+    proj_lead_alt, and	proj_location. The proj_id column will serve as the 
+    foreign key linking this table to the Responses table.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE projects (
           proj_id varchar(5) PRIMARY KEY
           proj_email text,
           proj_name text,
-          proj_agency varchar (15) CHECK (proj_agency IN ('State', 'Federal', 'Tribal', 'Non Profit', 'For Profit')),
-          proj_501c3 varchar (15) CHECK (proj_501c3 IN ('501c3', 'fiscal sponsor')),
+          proj_agency varchar (15) CHECK (proj_agency IN ('State', 'Federal', 
+              'Tribal', 'Non Profit', 'For Profit')),
+          proj_501c3 varchar (15) CHECK (proj_501c3 IN ('501c3', 
+              'fiscal sponsor')),
           proj_called text,
           proj_lead varchar (5) CHECK (proj_lead IN ('yes', 'no')),
           proj_lead_alt text,
@@ -47,19 +60,25 @@ answers_ca.
 
 ### questions
 
-    -This table will contain all of the questions and types of questions that will be asked in the Google Forms survey.
+    -This table will contain all of the questions and type of questions that 
+    will be asked in the Google Forms survey and will contain columns for 
+    quest_id, quest_type, and questions.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE questions (
           quest_id varchar text PRIMARY KEY
           questions text,
-          quest_type varchar (5) CHECK (quest_type IN ('text', 'mc', 'ls', 'ca')),
+          quest_type varchar (5) CHECK (quest_type IN ('text', 'mc', 'ls', 
+              'ca')),
           );")
 ```
 
 ### answers_text
 
-    -This table will contain all answers to short and long answer questions.
+    -This table will contain all answers to short and long answer questions and
+    will contain columns for text_id, answer, resp_id, and	quest_id. The 
+    resp_id and quest_id columns will serve as foregin keys linking this table 
+    to the Responses and Questions tables.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE answers_text (
@@ -72,7 +91,10 @@ answers_ca.
 
 ### answers-mc
 
-    -This table will contain all answers to multiple choice questions.
+    -This table will contain all answers to multiple choice questions and will 
+    contain columns for mc_id, answer, resp_id, and	quest_id. The resp_id and
+    quest_id columns will serve as foregin keys linking this table to the 
+    Responses and Questions tables.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE answers_mc (
@@ -85,7 +107,10 @@ answers_ca.
 
 ### answers_ls
 
-    -This table will contain all answers to linear scale questions.
+    -This table will contain all answers to linear scale questions and will 
+    contain columns for ls_id, answer, resp_id, and	quest_id. The resp_id and 
+    quest_id columns will serve as foregin keys linking this table to the 
+    Responses and Questions tables.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE answers_ls (
@@ -98,7 +123,11 @@ answers_ca.
 
 ### answers_ca
 
-    -This table will contain all answers to check all that apply questions.
+    -This table will contain all answers to check all that apply questions and 
+    will contain columns for ca_id, answer_1,	answer_2,	answer_3,	answer_4,	
+    answer_5, resp_id, and	quest_id. The resp_id and quest_id columns will 
+    serve as foregin keys linking this table to the Responses and Questions 
+    tables.
 
 ```{r, eval = FALSE, echo = TRUE}
     dbExecute(metabeaver_db, "CREATE TABLE answers_ca (
