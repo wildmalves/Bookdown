@@ -2,7 +2,6 @@ fig:my-fig
 about
 introduction
 project-organization
-load-raw-data-from-survey
 database-structure
 database-creation
 tables
@@ -14,6 +13,10 @@ answers-mc
 answers_ls
 answers_ca
 relational-database-diagram
-references
-footnotes
-citations
+data-input-testing
+load-raw-data-from-survey
+responses-1
+projects-1
+questions-1
+answers_text-1
+combining-tables

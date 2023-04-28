@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Data Input Testing | A Metanalysis of Beaver Translocation Methods to Inform Establishment Success and Beaver Management Policy</title>
+  <meta name="description" content="This is the final bookdown document for Reproducible Data Science 2023." />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Data Input Testing | A Metanalysis of Beaver Translocation Methods to Inform Establishment Success and Beaver Management Policy" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the final bookdown document for Reproducible Data Science 2023." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Data Input Testing | A Metanalysis of Beaver Translocation Methods to Inform Establishment Success and Beaver Management Policy" />
+  
+  <meta name="twitter:description" content="This is the final bookdown document for Reproducible Data Science 2023." />
+  
+
+<meta name="author" content="Molly Alves" />
+
+
+<meta name="date" content="2023-04-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="database-structure.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="project-organization.html"><a href="project-organization.html"><i class="fa fa-check"></i><b>2</b> Project Organization</a></li>
+<li class="chapter" data-level="3" data-path="database-structure.html"><a href="database-structure.html"><i class="fa fa-check"></i><b>3</b> Database Structure</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="database-structure.html"><a href="database-structure.html#database-creation"><i class="fa fa-check"></i><b>3.1</b> Database Creation</a></li>
+<li class="chapter" data-level="3.2" data-path="database-structure.html"><a href="database-structure.html#tables"><i class="fa fa-check"></i><b>3.2</b> Tables</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="database-structure.html"><a href="database-structure.html#responses"><i class="fa fa-check"></i><b>3.2.1</b> responses</a></li>
+<li class="chapter" data-level="3.2.2" data-path="database-structure.html"><a href="database-structure.html#projects"><i class="fa fa-check"></i><b>3.2.2</b> projects</a></li>
+<li class="chapter" data-level="3.2.3" data-path="database-structure.html"><a href="database-structure.html#questions"><i class="fa fa-check"></i><b>3.2.3</b> questions</a></li>
+<li class="chapter" data-level="3.2.4" data-path="database-structure.html"><a href="database-structure.html#answers_text"><i class="fa fa-check"></i><b>3.2.4</b> answers_text</a></li>
+<li class="chapter" data-level="3.2.5" data-path="database-structure.html"><a href="database-structure.html#answers-mc"><i class="fa fa-check"></i><b>3.2.5</b> answers-mc</a></li>
+<li class="chapter" data-level="3.2.6" data-path="database-structure.html"><a href="database-structure.html#answers_ls"><i class="fa fa-check"></i><b>3.2.6</b> answers_ls</a></li>
+<li class="chapter" data-level="3.2.7" data-path="database-structure.html"><a href="database-structure.html#answers_ca"><i class="fa fa-check"></i><b>3.2.7</b> answers_ca</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="database-structure.html"><a href="database-structure.html#relational-database-diagram"><i class="fa fa-check"></i><b>3.3</b> Relational Database Diagram</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-input-testing.html"><a href="data-input-testing.html"><i class="fa fa-check"></i><b>4</b> Data Input Testing</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-input-testing.html"><a href="data-input-testing.html#load-raw-data-from-survey"><i class="fa fa-check"></i><b>4.1</b> Load Raw Data from Survey</a></li>
+<li class="chapter" data-level="4.2" data-path="data-input-testing.html"><a href="data-input-testing.html#responses-1"><i class="fa fa-check"></i><b>4.2</b> responses</a></li>
+<li class="chapter" data-level="4.3" data-path="data-input-testing.html"><a href="data-input-testing.html#projects-1"><i class="fa fa-check"></i><b>4.3</b> projects</a></li>
+<li class="chapter" data-level="4.4" data-path="data-input-testing.html"><a href="data-input-testing.html#questions-1"><i class="fa fa-check"></i><b>4.4</b> questions</a></li>
+<li class="chapter" data-level="4.5" data-path="data-input-testing.html"><a href="data-input-testing.html#answers_text-1"><i class="fa fa-check"></i><b>4.5</b> answers_text</a></li>
+<li class="chapter" data-level="4.6" data-path="data-input-testing.html"><a href="data-input-testing.html#combining-tables"><i class="fa fa-check"></i><b>4.6</b> combining tables</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Metanalysis of Beaver Translocation Methods to Inform Establishment Success and Beaver Management Policy</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-input-testing" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Data Input Testing<a href="data-input-testing.html#data-input-testing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>For the purposes of this assignment I will load my raw data, responses, projects, questions, and answers_text tables as a test of what the data will look like in R.</p>
+<div id="load-raw-data-from-survey" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Load Raw Data from Survey<a href="data-input-testing.html#load-raw-data-from-survey" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>## ── Attaching packages ───── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.1
+## ✔ readr   2.1.2     ✔ forcats 0.5.2
+## ── Conflicts ──────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-input-testing.html#cb17-1" aria-hidden="true" tabindex="-1"></a>RawData_test <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span> (<span class="st">&quot;~/MASTERS/Bookdown/GoogleFormRespTEST.xlsx&quot;</span>)</span>
+<span id="cb17-2"><a href="data-input-testing.html#cb17-2" aria-hidden="true" tabindex="-1"></a>RawData_test</span></code></pre></div>
+<pre><code>## # A tibble: 22 × 110
+##    Timestamp           Email A…¹ What …² What …³ What …⁴ If no…⁵ What …⁶ What …⁷
+##    &lt;dttm&gt;              &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+##  1 2023-03-28 07:39:33 travis.c… Travis… Habita… State/… NA      WY Gam… NA     
+##  2 2022-11-29 10:12:27 jerry.al… Gerard… Biolog… State   n/a     Wyomin… &lt;NA&gt;   
+##  3 2023-03-24 14:14:43 dcollins… Dylan … Assist… Tribal  &lt;NA&gt;    The Tu… Tulali…
+##  4 2023-03-28 08:33:57 charnna@… Charnn… Execut… Non-pr… 501c3   Scott … N/A    
+##  5 2023-03-28 08:40:16 rschicks… Rachel… Presid… Non-pr… fiscal… Illino… n/a    
+##  6 2023-03-28 09:42:33 matt.pro… Matt P… Region… State/… &lt;NA&gt;    Idaho … Upper …
+##  7 2023-03-28 11:44:46 loren.ta… Loren … Wildli… Part-t… &lt;NA&gt;    Beaver… NA     
+##  8 2023-03-28 15:55:18 caristuc… Caroli… Gradua… UC Dav… &lt;NA&gt;    UC Dav… NA     
+##  9 2023-03-29 08:51:16 sahill@u… Shane … Habita… State/… &lt;NA&gt;    Utah D… Northe…
+## 10 2023-03-29 10:29:14 teresagr… Teresa… Wildli… State/… &lt;NA&gt;    Utah D… Southe…
+## # … with 12 more rows, 102 more variables:
+## #   `Are you the project lead for the  beaver translocations?` &lt;chr&gt;,
+## #   `If no, or co-lead, who is the project lead/co-lead?` &lt;chr&gt;,
+## #   `Where is your project located (ex: name of City, County, State, Province, Country, Watershed, etc...)?` &lt;chr&gt;,
+## #   `Does your project employ seasonal or permanent staff (check all that apply)?` &lt;chr&gt;,
+## #   `What is the population status of beavers in your area?` &lt;chr&gt;,
+## #   `Does your jurisdiction allow for the translocation of beavers?` &lt;chr&gt;, …</code></pre>
+</div>
+<div id="responses-1" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> responses<a href="data-input-testing.html#responses-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-input-testing.html#cb19-1" aria-hidden="true" tabindex="-1"></a>Responses_test <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span> (<span class="st">&quot;~/MASTERS/Bookdown/Responses.xlsx&quot;</span>)</span>
+<span id="cb19-2"><a href="data-input-testing.html#cb19-2" aria-hidden="true" tabindex="-1"></a>Responses_test</span></code></pre></div>
+<pre><code>## # A tibble: 22 × 2
+##    resp_id proj_id   
+##    &lt;chr&gt;   &lt;chr&gt;     
+##  1 resp_1  NA        
+##  2 resp_2  NA        
+##  3 resp_3  US_47_TBP 
+##  4 resp_4  NA        
+##  5 resp_5  NA        
+##  6 resp_6  US_12_USBC
+##  7 resp_7  NA        
+##  8 resp_8  NA        
+##  9 resp_9  US_44_NURR
+## 10 resp_10 US_44_SURR
+## # … with 12 more rows</code></pre>
+</div>
+<div id="projects-1" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> projects<a href="data-input-testing.html#projects-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-input-testing.html#cb21-1" aria-hidden="true" tabindex="-1"></a>Projects_test <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span> (<span class="st">&quot;~/MASTERS/Bookdown/Projects.xlsx&quot;</span>)</span>
+<span id="cb21-2"><a href="data-input-testing.html#cb21-2" aria-hidden="true" tabindex="-1"></a>Projects_test</span></code></pre></div>
+<pre><code>## # A tibble: 22 × 9
+##    proj_id    proj_email proj_…¹ proj_…² proj_…³ proj_…⁴ proj_…⁵ proj_…⁶ proj_…⁷
+##    &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+##  1 NA         travis.cu… Travis… State/… NA      NA      Lead w… &lt;NA&gt;    Sherid…
+##  2 NA         jerry.alt… Gerard… State   n/a     &lt;NA&gt;    I am t… &lt;NA&gt;    Cody R…
+##  3 US_47_TBP  dcollins@… Dylan … Tribal  &lt;NA&gt;    Tulali… No      Molly … Wester…
+##  4 NA         charnna@s… Charnn… Non-pr… 501c3   N/A     N/A     &lt;NA&gt;    &lt;NA&gt;   
+##  5 NA         rschicksi… Rachel… Non-pr… fiscal… n/a     Yes     &lt;NA&gt;    Illino…
+##  6 US_12_USBC matt.proe… Matt P… State/… &lt;NA&gt;    Upper … Co-lead Matt P… Idaho …
+##  7 NA         loren.tay… Loren … Part-t… &lt;NA&gt;    NA      No      Cody P… Wyoming
+##  8 NA         caristucc… Caroli… UC Dav… &lt;NA&gt;    NA      &lt;NA&gt;    &lt;NA&gt;    Tehama…
+##  9 US_44_NURR sahill@ut… Shane … State/… &lt;NA&gt;    Northe… Yes     &lt;NA&gt;    Northe…
+## 10 US_44_SURR teresagri… Teresa… State/… &lt;NA&gt;    Southe… Co-lead Mindi … Southe…
+## # … with 12 more rows, and abbreviated variable names ¹​proj_name, ²​proj_agency,
+## #   ³​proj_501c3, ⁴​proj_called, ⁵​proj_lead, ⁶​proj_lead_alt, ⁷​proj_location</code></pre>
+</div>
+<div id="questions-1" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> questions<a href="data-input-testing.html#questions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-input-testing.html#cb23-1" aria-hidden="true" tabindex="-1"></a>Questions_test <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span> (<span class="st">&quot;~/MASTERS/Bookdown/Questions.xlsx&quot;</span>)</span>
+<span id="cb23-2"><a href="data-input-testing.html#cb23-2" aria-hidden="true" tabindex="-1"></a>Questions_test</span></code></pre></div>
+<pre><code>## # A tibble: 99 × 3
+##    quest_id quest_type questions            
+##    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;                
+##  1 Q1       ca         proj_staffing        
+##  2 Q2       mc         proj_loc_beaverpop   
+##  3 Q3       mc         proj_juris_allow     
+##  4 Q4       mc         proj_juris_allow_time
+##  5 Q5       mc         exp_level            
+##  6 Q6       text       exp_years            
+##  7 Q7       mc         exp_training         
+##  8 Q8       text       exp_who_trained      
+##  9 Q9       mc         partners_have        
+## 10 Q10      text       partners_who         
+## # … with 89 more rows</code></pre>
+</div>
+<div id="answers_text-1" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> answers_text<a href="data-input-testing.html#answers_text-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-input-testing.html#cb25-1" aria-hidden="true" tabindex="-1"></a>Answers_text_test <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span> (<span class="st">&quot;~/MASTERS/Bookdown/Answers_text.xlsx&quot;</span>)</span>
+<span id="cb25-2"><a href="data-input-testing.html#cb25-2" aria-hidden="true" tabindex="-1"></a>Answers_text_test</span></code></pre></div>
+<pre><code>## # A tibble: 748 × 4
+##    text_id answer                                                resp_id quest…¹
+##    &lt;chr&gt;   &lt;chr&gt;                                                 &lt;chr&gt;   &lt;chr&gt;  
+##  1 text_1  &gt;10                                                   resp_1  Q6     
+##  2 text_2  5                                                     resp_2  Q6     
+##  3 text_3  3                                                     resp_3  Q6     
+##  4 text_4  Less than two weeks                                   resp_4  Q6     
+##  5 text_5  Less than one                                         resp_5  Q6     
+##  6 text_6  6                                                     resp_6  Q6     
+##  7 text_7  I have not personally translocated any beavers.       resp_7  Q6     
+##  8 text_8  &lt;NA&gt;                                                  resp_8  Q6     
+##  9 text_9  4                                                     resp_9  Q6     
+## 10 text_10 5+ in supervisory role, previously, I supervised the… resp_10 Q6     
+## # … with 738 more rows, and abbreviated variable name ¹​quest_id</code></pre>
+</div>
+<div id="combining-tables" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> combining tables<a href="data-input-testing.html#combining-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Combining Answers_text_test to Questions using key quest_id and Responses using key resp_id.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-input-testing.html#cb27-1" aria-hidden="true" tabindex="-1"></a>Comb_test <span class="ot">&lt;-</span> Answers_text_test <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="data-input-testing.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(Questions_test, <span class="at">by =</span> <span class="st">&quot;quest_id&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="data-input-testing.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(Responses_test, <span class="at">by =</span> <span class="st">&quot;resp_id&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data-input-testing.html#cb28-1" aria-hidden="true" tabindex="-1"></a>Comb_test</span></code></pre></div>
+<pre><code>## # A tibble: 748 × 7
+##    text_id answer                        resp_id quest…¹ quest…² quest…³ proj_id
+##    &lt;chr&gt;   &lt;chr&gt;                         &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+##  1 text_1  &gt;10                           resp_1  Q6      text    exp_ye… NA     
+##  2 text_2  5                             resp_2  Q6      text    exp_ye… NA     
+##  3 text_3  3                             resp_3  Q6      text    exp_ye… US_47_…
+##  4 text_4  Less than two weeks           resp_4  Q6      text    exp_ye… NA     
+##  5 text_5  Less than one                 resp_5  Q6      text    exp_ye… NA     
+##  6 text_6  6                             resp_6  Q6      text    exp_ye… US_12_…
+##  7 text_7  I have not personally transl… resp_7  Q6      text    exp_ye… NA     
+##  8 text_8  &lt;NA&gt;                          resp_8  Q6      text    exp_ye… NA     
+##  9 text_9  4                             resp_9  Q6      text    exp_ye… US_44_…
+## 10 text_10 5+ in supervisory role, prev… resp_10 Q6      text    exp_ye… US_44_…
+## # … with 738 more rows, and abbreviated variable names ¹​quest_id, ²​quest_type,
+## #   ³​questions</code></pre>
+<p>Combining new Comb_test to Comb_test2 to include Projects using key proj_id.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="data-input-testing.html#cb30-1" aria-hidden="true" tabindex="-1"></a>Comb_test2 <span class="ot">&lt;-</span> Comb_test <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="data-input-testing.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(Projects_test, <span class="at">by =</span> <span class="st">&quot;proj_id&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-input-testing.html#cb31-1" aria-hidden="true" tabindex="-1"></a>Comb_test2</span></code></pre></div>
+<pre><code>## # A tibble: 3,808 × 15
+##    text_id answer resp_id quest_id quest_type questions proj_id proj_e…¹ proj_…²
+##    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;  
+##  1 text_1  &gt;10    resp_1  Q6       text       exp_years NA      travis.… Travis…
+##  2 text_1  &gt;10    resp_1  Q6       text       exp_years NA      jerry.a… Gerard…
+##  3 text_1  &gt;10    resp_1  Q6       text       exp_years NA      charnna… Charnn…
+##  4 text_1  &gt;10    resp_1  Q6       text       exp_years NA      rschick… Rachel…
+##  5 text_1  &gt;10    resp_1  Q6       text       exp_years NA      loren.t… Loren …
+##  6 text_1  &gt;10    resp_1  Q6       text       exp_years NA      caristu… Caroli…
+##  7 text_1  &gt;10    resp_1  Q6       text       exp_years NA      thkelle… Thomas…
+##  8 text_1  &gt;10    resp_1  Q6       text       exp_years NA      dan.zad… Dan Za…
+##  9 text_1  &gt;10    resp_1  Q6       text       exp_years NA      jamie.u… Jamie …
+## 10 text_1  &gt;10    resp_1  Q6       text       exp_years NA      jakob@p… Jakob …
+## # … with 3,798 more rows, 6 more variables: proj_agency &lt;chr&gt;,
+## #   proj_501c3 &lt;chr&gt;, proj_called &lt;chr&gt;, proj_lead &lt;chr&gt;, proj_lead_alt &lt;chr&gt;,
+## #   proj_location &lt;chr&gt;, and abbreviated variable names ¹​proj_email, ²​proj_name</code></pre>
+<ul>
+<li>I realize I am having issues with duplicates by text_id field. Will need to
+consult and rectify to figure out how to make the data not duplicate, especially
+when other answers_ tables are added.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="database-structure.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-Data_Input_Testing.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

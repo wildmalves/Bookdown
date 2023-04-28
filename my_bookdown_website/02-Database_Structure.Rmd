@@ -21,7 +21,7 @@ answers_ca.
 
 ### responses 
  
-    - This table will contain all responses submitted to the Google Forms 
+    This table will contain all responses submitted to the Google Forms 
     survey and will contact columns for response ID (resp_id) and project ID 
     (proj_id). Response IDs will be generated electronically based on the order 
     of survey submission and each project will be manually assigned a unique 
@@ -36,7 +36,7 @@ answers_ca.
 
 ### projects
 
-    - This table will contain information about all respondents projects and 
+    This table will contain information about all respondents projects and 
     contact information and will contain columns for proj_id, proj_email, 
     proj_name,	proj_agency,	proj_501c3,	proj_called,	proj_lead,	
     proj_lead_alt, and	proj_location. The proj_id column will serve as the 
@@ -60,7 +60,7 @@ answers_ca.
 
 ### questions
 
-    -This table will contain all of the questions and type of questions that 
+    This table will contain all of the questions and type of questions that 
     will be asked in the Google Forms survey and will contain columns for 
     quest_id, quest_type, and questions.
 
@@ -75,7 +75,7 @@ answers_ca.
 
 ### answers_text
 
-    -This table will contain all answers to short and long answer questions and
+    This table will contain all answers to short and long answer questions and
     will contain columns for text_id, answer, resp_id, and	quest_id. The 
     resp_id and quest_id columns will serve as foregin keys linking this table 
     to the Responses and Questions tables.
@@ -91,7 +91,7 @@ answers_ca.
 
 ### answers-mc
 
-    -This table will contain all answers to multiple choice questions and will 
+    This table will contain all answers to multiple choice questions and will 
     contain columns for mc_id, answer, resp_id, and	quest_id. The resp_id and
     quest_id columns will serve as foregin keys linking this table to the 
     Responses and Questions tables.
@@ -107,7 +107,7 @@ answers_ca.
 
 ### answers_ls
 
-    -This table will contain all answers to linear scale questions and will 
+    This table will contain all answers to linear scale questions and will 
     contain columns for ls_id, answer, resp_id, and	quest_id. The resp_id and 
     quest_id columns will serve as foregin keys linking this table to the 
     Responses and Questions tables.
@@ -123,7 +123,7 @@ answers_ca.
 
 ### answers_ca
 
-    -This table will contain all answers to check all that apply questions and 
+    This table will contain all answers to check all that apply questions and 
     will contain columns for ca_id, answer_1,	answer_2,	answer_3,	answer_4,	
     answer_5, resp_id, and	quest_id. The resp_id and quest_id columns will 
     serve as foregin keys linking this table to the Responses and Questions 

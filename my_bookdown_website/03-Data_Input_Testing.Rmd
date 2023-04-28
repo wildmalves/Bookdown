@@ -1,1 +1,76 @@
 # Data Input Testing
+
+For the purposes of this assignment I will load my raw data, responses, projects, questions, and answers_text tables as a test of what the data will look like in R. 
+
+## Load Raw Data from Survey
+
+```{r, eval=TRUE, echo=FALSE}
+library(tidyverse)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+library(readxl)
+```
+
+```{r, eval=TRUE}
+RawData_test <- readxl::read_excel ("~/MASTERS/Bookdown/GoogleFormRespTEST.xlsx")
+RawData_test
+```
+
+## responses
+
+```{r, eval=TRUE}
+Responses_test <- readxl::read_excel ("~/MASTERS/Bookdown/Responses.xlsx")
+Responses_test
+```
+
+## projects
+
+```{r, eval=TRUE}
+Projects_test <- readxl::read_excel ("~/MASTERS/Bookdown/Projects.xlsx")
+Projects_test
+```
+
+## questions
+
+```{r, eval=TRUE}
+Questions_test <- readxl::read_excel ("~/MASTERS/Bookdown/Questions.xlsx")
+Questions_test
+```
+
+## answers_text
+
+```{r, eval=TRUE}
+Answers_text_test <- readxl::read_excel ("~/MASTERS/Bookdown/Answers_text.xlsx")
+Answers_text_test
+```
+
+## combining tables
+
+Combining Answers_text_test to Questions using key quest_id and Responses using key resp_id.
+
+```{r, eval=TRUE}
+Comb_test <- Answers_text_test %>%
+  left_join(Questions_test, by = "quest_id") %>%
+  left_join(Responses_test, by = "resp_id")
+```
+
+```{r, eval=TRUE}
+Comb_test
+```
+
+Combining new Comb_test to Comb_test2 to include Projects using key proj_id.
+
+```{r, eval=TRUE}
+Comb_test2 <- Comb_test %>%
+  left_join(Projects_test, by = "proj_id")
+
+```
+
+```{r, eval=TRUE}
+Comb_test2
+```
+
+* I realize I am having issues with duplicates by text_id field. Will need to 
+consult and rectify to figure out how to make the data not duplicate, especially
+when other answers_ tables are added.

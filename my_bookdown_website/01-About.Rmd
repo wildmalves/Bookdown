@@ -1,18 +1,3 @@
 # Project Organization
 
-For my final semester project, I will be establishing a database that will enable me to manage, clean, and code my incoming data for eventual import into R for meta-analysis. The Google Forms Survey was lauched two weeks ago. So far, I have received 22 responses. I will use this as test data and manipulate it to fit my database structure.
-
-## Load Raw Data from Survey
-
-```{r, eval=FALSE, echo=FALSE}
-library(tidyverse)
-```
-
-```{r, eval=TRUE, echo=FALSE}
-library(readxl)
-```
-
-```{r, eval=TRUE}
-RawData_test <- readxl::read_excel ("~/MASTERS/Bookdown/GoogleFormRespTEST.xlsx")
-RawData_test
-```
+For my final semester project, I will be establishing a database that will enable me to manage, clean, and code my incoming data for eventual import into R for meta-analysis. The Google Forms Survey was launched ~two weeks ago. So far, I have received 22 responses. I will use this as test data and manipulate it to fit my database structure.
